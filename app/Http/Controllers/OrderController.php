@@ -9,8 +9,8 @@ class OrderController
 {
     public function index(Request $request)
     {
-        $orders = Order::search($request->input('search_query'))
-            ->paginate(7);
+        $orders = Order::search($request->input('query'))
+            ->paginate(20);
 
         return view('home', compact('orders'));
     }

@@ -29,7 +29,7 @@
 
                 <form action="{{ route('orders') }}" method="GET" class="flex justify-center mt-6">
                     <div class="flex items-center">
-                        <input name="search_query" value="{{ request()->get('search_query') }}" type="text" placeholder="Search..." class="px-4 py-2 border rounded-l-md w-64" />
+                        <input name="query" value="{{ request()->get('query') }}" type="text" placeholder="Search..." class="px-4 py-2 border rounded-l-md w-64" />
                         <button type="submit" class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600">Search</button>
                     </div>
                 </form>
@@ -46,7 +46,7 @@
                         <ul>
                             @foreach($orders as $order)
                                 <li style="background-color: #fff; padding: 10px 20px; border-radius: 15px; margin-bottom: 30px; box-shadow: 1px 1px 3px #000">
-                                    <h1 style="font-weight: bold">{{ $order->id . ') ' . $order->title }}</h1>
+                                    <h1 style="font-weight: bold">{{ $orders->firstItem() + $loop->index . ') ' . $order->title }}</h1>
                                     <p>{{ $order->client }}</p>
                                 </li>
                             @endforeach
