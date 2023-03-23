@@ -1,4 +1,4 @@
-<img style="float: right" src="https://animesher.com/orig/2/213/2130/21307/animesher.com_80s-cyber-grunge-pale-2130706.gif" width="300">
+<img src="https://animesher.com/orig/2/213/2130/21307/animesher.com_80s-cyber-grunge-pale-2130706.gif" width="300">
 
 ## TO DO:
 
