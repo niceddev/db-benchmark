@@ -83,7 +83,7 @@ services:
     container_name: ${DOCKER_PROJECT_NAME}_kibana
     restart: always
     environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+      - ELASTICSEARCH_HOSTS=http://${DOCKER_PROJECT_NAME}_elasticsearch:9200
     ports:
       - ${DOCKER_KIBANA_PORT}:5601
 
