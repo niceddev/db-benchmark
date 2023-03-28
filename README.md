@@ -4,16 +4,18 @@
 
 - docker-compose up -d --build
 - cp .env.example .env
-  - DOCKER_PROJECT_NAME=testdb
+  -  DOCKER_PROJECT_NAME=testdb
   -  DOCKER_NGINX_PORT=86
   -  DOCKER_PHP_PORT=9006
   -  DOCKER_POSTGRES_PORT=5436
   -  DOCKER_REDIS_PORT=6376
   -  DOCKER_MEILISEARCH_PORT=7706
+  -  DOCKER_ELASTICSEARCH_PORT=9200
+  -  DOCKER_KIBANA_PORT=5601
 - npm i (node 16v)
 - npm run dev
-- docker exec -it samgau_php bash
+- docker exec -it testdb_php bash
 - composer i
-- php artisan key:generated
+- php artisan key:generate
 - php artisan migrate
 
