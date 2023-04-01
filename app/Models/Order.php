@@ -15,6 +15,8 @@ class Order extends Model
         'title'
     ];
 
+    protected $perPage = 20;
+
     /**
      * Get the name of the index associated with the model.
      *

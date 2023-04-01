@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 
 class OrderController
 {
-    public function index(Request $request)
+    public function index()
     {
-        $orders = Order::search($request->input('query'))
-            ->paginate(20);
+        $orders = Order::paginate(20);
 
         return view('home', compact('orders'));
     }

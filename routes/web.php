@@ -2,43 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [
-    \App\Http\Controllers\HomeController::class,
-    'index'
-]);
+Route::view('/', 'home');
 
-Route::prefix('meilisearch')->group(function () {
+Route::prefix('orders')->group(function () {
 
     Route::get('/', [
-        \App\Http\Controllers\SearchMethods\MeilisearchController::class,
+        \App\Http\Controllers\OrderController::class,
         'index'
-    ])->name('meilisearch');
+    ])->name('index');
 
 });
 
-Route::prefix('elasticsearch')->group(function () {
+Route::prefix('search-methods')->group(function () {
 
-    Route::get('/', [
-        \App\Http\Controllers\SearchMethods\ElasticsearchController::class,
+    Route::get('/{method}', [
+        \App\Http\Controllers\SearcherController::class,
         'index'
-    ])->name('elasticsearch');
-
-});
-
-Route::prefix('full-text-search')->group(function () {
-
-    Route::get('/', [
-        \App\Http\Controllers\SearchMethods\FulltextsearchController::class,
-        'index'
-    ])->name('full_text_search');
-
-});
-
-Route::prefix('manticoresearch')->group(function () {
-
-    Route::get('/', [
-        \App\Http\Controllers\SearchMethods\ManticoresearchController::class,
-        'index'
-    ])->name('manticoresearch');
+    ])->name('searcher');
 
 });
