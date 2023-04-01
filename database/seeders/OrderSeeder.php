@@ -17,7 +17,7 @@ class OrderSeeder extends Seeder
         $faker = Faker::create();
 
         $orders = [];
-        for ($i = 0; $i <= 100000; $i++) {
+        for ($i = 0; $i <= 1000000; $i++) {
             $orders[] = [
                 'local_uuid' => Str::uuid(),
                 'client' => $faker->name,

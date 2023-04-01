@@ -25,7 +25,7 @@ class OrderController
             $csv[] = combine_arr(['id', 'local_uuid', 'client', 'title'], $row);
         }
 
-        foreach (array_chunk($csv, 50000) as $chunk) {
+        foreach (array_chunk($csv, 200000) as $chunk) {
             foreach ($chunk as $data) {
                 Order::insert($data);
             }
