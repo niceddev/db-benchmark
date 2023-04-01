@@ -2,32 +2,43 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', [
-    \App\Http\Controllers\OrderController::class,
+    \App\Http\Controllers\HomeController::class,
     'index'
 ]);
 
-Route::prefix('orders')->group(function () {
+Route::prefix('meilisearch')->group(function () {
 
     Route::get('/', [
-        \App\Http\Controllers\OrderController::class,
+        \App\Http\Controllers\SearchMethods\MeilisearchController::class,
         'index'
-    ])->name('orders');
+    ])->name('meilisearch');
 
-    Route::post('/import', [
-        \App\Http\Controllers\OrderController::class,
-        'import'
-    ])->name('import');
+});
+
+Route::prefix('elasticsearch')->group(function () {
+
+    Route::get('/', [
+        \App\Http\Controllers\SearchMethods\ElasticsearchController::class,
+        'index'
+    ])->name('elasticsearch');
+
+});
+
+Route::prefix('full-text-search')->group(function () {
+
+    Route::get('/', [
+        \App\Http\Controllers\SearchMethods\FulltextsearchController::class,
+        'index'
+    ])->name('full_text_search');
+
+});
+
+Route::prefix('manticoresearch')->group(function () {
+
+    Route::get('/', [
+        \App\Http\Controllers\SearchMethods\ManticoresearchController::class,
+        'index'
+    ])->name('manticoresearch');
 
 });

@@ -25,7 +25,7 @@ class OrderSeeder extends Seeder
             ];
         }
 
-        foreach (array_chunk($orders, 1000) as $orderChunk) {
+        foreach (array_chunk($orders, 10000) as $orderChunk) {
             Order::insert($orderChunk);
         }
     }
