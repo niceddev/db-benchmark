@@ -26,5 +26,4 @@ class Order extends Model
     {
         return 'orders_index';
     }
-
 }

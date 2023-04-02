@@ -9,7 +9,7 @@ class OrderController
 {
     public function index()
     {
-        $orders = Order::paginate(20);
+        $orders = Order::paginate();
 
         return view('home', compact('orders'));
     }

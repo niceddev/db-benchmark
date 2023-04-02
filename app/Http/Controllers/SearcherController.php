@@ -10,7 +10,9 @@ class SearcherController
     public function index(string $method, OrderRequest $orderRequest)
     {
         $orders = ($orderRequest->input('query') !== null)
-            ? Order::search($orderRequest->input('query'))->paginate()
+            ? Order::search($orderRequest->input('query'))
+                ->paginate()
+                ->withQueryString()
             : Order::paginate();
 
         return view('pages.search-method', compact('method','orders' ));
