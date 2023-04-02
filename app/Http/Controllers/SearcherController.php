@@ -13,7 +13,7 @@ class SearcherController
             ? Order::search($orderRequest->input('query'))
                 ->paginate()
                 ->withQueryString()
-            : Order::paginate();
+            : Order::orderByDesc('id')->paginate();
 
         return view('pages.search-method', compact('method','orders' ));
     }

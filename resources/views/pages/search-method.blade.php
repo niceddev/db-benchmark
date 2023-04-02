@@ -5,9 +5,11 @@
 @section('content')
     @include('components.header')
 
-    <div class="flex justify-center items-center gap-3">
-        {!! \App\Enums\SearchMethod::getSvgLogo($method) !!}
-        <h1 class="inline-block font-bold text-lg">{{ ucfirst($method) }}</h1>
+    <div class="flex justify-center items-center">
+        <a href="">
+            {!! \App\Enums\SearchMethod::getSvgLogo($method) !!}
+            <h1 class="inline-block font-bold text-lg mt-2">{{ ucfirst($method) }}</h1>
+        </a>
     </div>
 
     <form action="{{ route('searcher', $method) }}" method="GET" class="flex justify-center mt-6">
@@ -25,10 +27,9 @@
                         <div class="h-full flex items-center border-gray-200 bg-white border p-4 rounded-lg">
                             <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://dummyimage.com/80x80">
                             <div class="flex-grow">
-                                <h2 class="text-gray-900 title-font font-medium">{{ $orders->firstItem() + $loop->index }}</h2>
-                                <p class="text-gray-500">id: {{ $order->id }}</p>
+                                <h2 class="text-gray-900 title-font font-medium">id: {{ $order->id }}</h2>
                                 <p class="text-gray-500">{{ $order->title }}</p>
-                                <p class="text-gray-900">{{ $order->client }}</p>
+                                <p class="text-gray-900">Client: {{ $order->client }}</p>
                             </div>
                         </div>
                     </div>
